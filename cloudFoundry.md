@@ -17,3 +17,13 @@ cf create-service elephantsql turtle cf-spring-db
 cf bind-service cf-spring cf-spring-db
 cf service
 ```
+
+### mainifest
+```
+---
+applications:
+- name: cf-spring
+  memory: 768M
+  instances: 1
+  random-route: true
+```
