@@ -45,7 +45,8 @@ To specify the WAR WEB-INF contents use the maven-war-pluing:
 `direcotry` is where the compiled js and html is located.
 `targetPath` is where the files will be coppied to in the war.
 
-### frontend-maven-plugin
+### [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin)
+
 To compile the frontend, be that Angular or React.js use the frontend-maven-plugin:
 ```
 <plugin>
