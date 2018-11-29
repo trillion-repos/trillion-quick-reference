@@ -53,6 +53,30 @@ project
 ### Testing Resources
 A `resources` directory can be created within the `test` directory of a project to list out different resources for testing.  One important one is a specific test `application.properties`.  Where you can set up different database connections only for testing usage.
 
+### Testing Controller
+```
+@RunWith( SpringRunner.class )
+@WebMvcTest
+public class ControllerTests {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private YourService yourService;
+
+    @Test
+    public void test() throws Exception {
+        when(this.assetTrackerService.methodCalled()).thenReturn(new Entity);
+
+        this.mockMvc.perform(get("/test/{test}","test"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("test").value("test"));
+    }
+
+}
+```
+
 ### Sample SpringBoot with frontend
 ```
 <?xml version="1.0" encoding="UTF-8"?>
