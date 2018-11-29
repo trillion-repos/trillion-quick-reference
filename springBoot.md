@@ -53,6 +53,26 @@ project
 ### Testing Resources
 A `resources` directory can be created within the `test` directory of a project to list out different resources for testing.  One important one is a specific test `application.properties`.  Where you can set up different database connections only for testing usage.
 
+### Testing restAPI
+```
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class ApplicationTests {
+
+	@Autowired
+	private TestRestTemplate restTemplate;
+	
+	@Test
+	public void test() {
+
+		ResponseEntity<Test> assetResponseEntity = restTemplate.getForEntity("/test/{test}",Test.class,"test");
+		assertThat(assetResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(assetResponseEntity.getBody().getTest()).isEqualTo("test");
+
+
+	}
+```
+
 ### Testing Controller
 ```
 @RunWith( SpringRunner.class )
