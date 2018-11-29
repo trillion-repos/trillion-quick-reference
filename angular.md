@@ -50,3 +50,58 @@ Then either call from command line or if calling from the maven frontend builder
 	</configuration>
 </execution>
 ```
+### Calling Rest services
+Utilize the `HttpClient` component from Anuglar -
+```
+import { HttpClient } from '@angular/common/http';
+```
+
+Calls look like this in the app.component.ts:
+```
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.getAsset('');
+  }
+
+  // Read all REST Items
+  getAsset(manu): void {
+    this.restItemsUrl = '/asset/' + 'dell';
+    this.restItemsServiceGetRestItems()
+      .subscribe(
+        restItems => {
+          this.restItems = restItems;
+          console.log(this.restItems);
+        }
+      )
+  }
+
+  // Rest Items Service: Read all REST Items
+  restItemsServiceGetRestItems() {
+    return this.http
+      .get<any[]>(this.restItemsUrl)
+      .pipe(map(data => data));
+  }
+```
+
+Always have to perform imports in the module.ts:
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    HttpClientModule,
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
