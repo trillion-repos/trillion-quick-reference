@@ -18,7 +18,8 @@ cf bind-service cf-spring cf-spring-db
 cf service
 ```
 
-### mainifest
+### manifest
+A manifest.yml is needed for CF to know what kind of resources are needed for this application.
 ```
 ---
 applications:
