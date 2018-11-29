@@ -97,7 +97,24 @@ public class ControllerTests {
 }
 ```
 
-### Sample SpringBoot with frontend
+### Application Properites
+Sample:
+```
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring.datasource.url= jdbc:postgresql://localhost:5432/assetDB
+spring.datasource.username=postgres
+spring.datasource.password=postgres@123
+
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+
+# Hibernate ddl auto (create, create-drop, validate, update)
+spring.jpa.hibernate.ddl-auto = update
+```
+
+### Sample SpringBoot POM with frontend
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
