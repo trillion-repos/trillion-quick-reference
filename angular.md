@@ -40,13 +40,13 @@ In package.json add a scrip section for prod:
 Then either call from command line or if calling from the maven frontend builder make sure to call it instead of normal buidl:
 ```
 <execution>
-						<id>npm run build</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<phase>generate-resources</phase>
-						<configuration>
-							<arguments>run prod</arguments>
-						</configuration>
-					</execution>
+	<id>npm run build</id>
+	<goals>
+		<goal>npm</goal>
+	</goals>
+	<phase>generate-resources</phase>
+	<configuration>
+		<arguments>run prod</arguments>
+	</configuration>
+</execution>
 ```
