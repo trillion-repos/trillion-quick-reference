@@ -1,6 +1,30 @@
 # SpringBoot
 
-## Annotations
+### Basic Stucutre
+```
+project
+└───src
+    └───main
+	└───java
+	|   └───com.trillion.example
+	|	└───domain
+        |           |	ExampleEntity
+	|	└───repository
+        |           |	ExampleRepository(Interface)
+	|	└───service
+        |           |	ExampleService
+	|	└───web
+        |           |	ExampleException
+        |           |	ExampleController
+        |        ExampleApplicaion
+	└───resources
+   └───test
+	└───java
+	    └───com.trillion.example
+
+```
+
+### Commonly used Annotations
 
 | Annotation                        | Description
 |-------------------------------    |--------------
@@ -26,6 +50,8 @@
 |                                   |
 |`@DataMongoTest`                   | Use in combination with SpringRunner for testing MongoDB components; uses in-memory MongoDB by default
 
+### Testing Resources
+A `resources` directory can be created within the `test` directory of a project to list out different resources for testing.  One important one is a specific test `application.properties`.  Where you can set up different database connections only for testing usage.
 
 ### Sample SpringBoot with frontend
 ```
